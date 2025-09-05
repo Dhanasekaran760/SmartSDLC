@@ -48,25 +48,4 @@ def concept_explanation(concept):
   return generate_response(prompt, max_length=800)
 
 def quiz_generator(concept):
-  prompt = f"Generate 5 quiz question about {concept} with different quies types (multiple choice, true/false, short answer):, Give me the answer at the end:"
-  return generate_response(prompt,max_length=1200)
-
-#create gradio
-with gr.Blocks() as app:
-  gr.Markdown("# Educational AI assistant")
-  with gr.Tabs():
-    with gr.TabItem("concept Explanation"):
-      concept_input=gr.Textbox(label="enter a concept",placeholder="e.g., Machine learning")
-      explain_btn = gr.Button("explain")
-      explanation_output = gr.Textbox(label="explanation", lines=10)
-
-      explain_btn.click(concept_explanation,inputs= concept_input, outputs=explanation_output)
-
-    with gr.TabItem("Quiz Generator"):
-      quiz_input=gr.Textbox(label="enter a topic",placeholder="e.g., Machine learning")
-      quiz_btn = gr.Button("Generate Quiz")
-      quiz_output = gr.Textbox(label="Quiz_question & Answer", lines=10)
-
-      quiz_btn.click(quiz_generator, inputs = quiz_input, outputs=quiz_output)
-
-app.launch(share=True)
+  prompt = f"Generate 5 quiz question about {concept} with different quies types (multiple choice, true/false, short answer):, Give me the answer at the end
